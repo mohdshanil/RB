@@ -1,34 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import Header from './containers/common/header/Header';
+import Home from './containers/home/Home';
+import Details from './containers/details/Details';
 import './App.css';
-import {Layout} from  "./common/Frame/Layout";
-import {connect} from "react-redux";
 
-import axios from "axios";
-
-class AppComponent extends Component {
-
-  constructor(props){
-        super(props); 
-  }
-
-  componentWillMount(){
-    
-  }
-
-  render() {
-    return (
-      <div> 
-              <Layout />
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <div>
+        <Switch>
+          <Route path="/home" component={Home} />
+          <Route path="/detail/:id" name="detail" component={Details} />
+          <Route path="/" component={Home}  exact/>
+          <Redirect from="/" to="/home" />
+        </Switch>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-const appComponentMapStateToProps = (state)=>{
-    return {
-     
-    }
-}
-
-export const App = connect(appComponentMapStateToProps)(AppComponent) ;
+export default App; 

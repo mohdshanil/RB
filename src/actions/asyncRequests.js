@@ -1,6 +1,7 @@
 import axios from 'axios';
-var qs = require('qs');
+
 export function asyncRequesting(type){  
+    
     if(localStorage.getItem("Auth")){
         //axios.defaults.headers.common['Authorization'] = localStorage.getItem("Auth"); 
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';

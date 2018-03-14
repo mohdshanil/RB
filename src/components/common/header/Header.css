@@ -1,0 +1,75 @@
+
+.navbar{
+    background-color: #FFF;
+    padding-left: 12%;
+    padding-right: 12%;
+    width: 100%;
+} 
+
+.menuLbl{
+    font-family: 'Raleway', sans-serif;
+    color: #333;
+    padding: 7px 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+
+
+.App {
+    text-align: center;
+  }
+  
+  
+  
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+  }
+  
+  .App-header {
+    background-color: #f3f9fe;
+    height: auto;
+    padding: 20px;
+  }
+  
+  .App-title {
+    font-size: 1.5em;
+  }
+  
+  .App-intro {
+    font-size: large;
+  }
+  
+  @keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .theMovieMenu{
+    background-color: #ffffff;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #main{
+  
+    position: relative;
+    background: #f7f7f7;
+    min-height: 500px;
+    top: 90px;
+    padding-top: 10px;
+  }
+  
+  .pd520{
+    padding: 5px 20px;
+  }
+  
+  
+  
+  .spinner{
+    position: fixed;
+    top: 45%;
+    left:45%;
+  }

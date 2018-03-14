@@ -16,21 +16,7 @@
     padding: 5px 20px;
 }
 
-.navbar {
-    width: 88%;
-    padding: 1.4em 0;
-    margin: 0 auto;
-}
 
-.menuLbl{
-    font-family: 'Raleway', sans-serif;
-    color: #333;
-    padding: 7px 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.75em;
-    font-weight: 600;
-}
 
 .spinner{
     position: fixed;

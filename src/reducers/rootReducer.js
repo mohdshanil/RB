@@ -1,10 +1,14 @@
-import {combineReducers} from "redux";
-import {getAllPopularMoviesFun,getMoviesGenreFun,getMovieDetailsFun} from "./movies";
-import {loaderFun} from "./loader";
+import { combineReducers } from "redux";
+import movieDetails from './movieDetailsReducer';
+import popularMovies from './popularMoviesReducer';
+import movieGenres from './movieGenresReducer';
+import { loaderFun } from './loaderReducer';
 
-export const rootReducer = combineReducers({
-    getAllPopularMovies:getAllPopularMoviesFun,
-    getMoviesGenre:getMoviesGenreFun,
-    getMovieDetails:getMovieDetailsFun,
-    statusOfLoading:loaderFun
+const rootReducer = combineReducers({
+    movieDetails,
+    popularMovies,
+    movieGenres,
+    statusOfLoading: loaderFun
 });
+
+export default rootReducer; 
