@@ -13,7 +13,7 @@ export function asyncRequesting(type){
     }
 } 
 
-export function asyncRequestSuccess(type,data){
+export function asyncRequestSuccess(type,data){debugger;
     return {
         type:type,
         payload:data

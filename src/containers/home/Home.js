@@ -4,19 +4,12 @@ import { connect } from "react-redux";
 import HomeComponent from '../../components/home/HomeComponent';
 import * as moviesActions from "../../actions/moviesActions";
 
-
-const defaultStateMovieList = {
-    page: 1,
-    searchName: "",
-    movieList: [],
-    genres: []
-}
+const initialState = { page: 1, total_pages: 0, total_results:0, results: [] }
 
 class Home extends Component {
 
     constructor(props) {
         super(props);
-        this.state = Object.assign({}, defaultStateMovieList);
         this.handleScroll = this.handleScroll.bind(this);
         this.goToDetails = this.goToDetails.bind(this);
         console.log("its home");
@@ -34,21 +27,24 @@ class Home extends Component {
         const windowBottom = windowHeight + window.pageYOffset;
 
         if (windowBottom >= docHeight) {
+            debugger;
             console.log("bottom reached");
             //Increment page counting
-            if (this.state.page < 1000) {
-                this.setState({
-                    page: this.state.page + 1
-                }, () => {
-                    this.props.moviesActions.getAllPopularMovies({ page: this.state.page });
-                })
+            if (this.props.popularMovies.payload.page < 1000) {
+                this.props.moviesActions.getAllPopularMovies({ page: this.props.popularMovies.payload.page + 1 });
             }
         } else {
             console.log("not bottom reached");
         }
     }
 
+    shouldComponentUpdate(nextState) {
+        return nextState.popularMovies.payload !== this.props.popularMovies.payload;
+    }
 
+    componentWillReceiveProps(nextProps) {
+        this
+    };
 
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
@@ -60,19 +56,16 @@ class Home extends Component {
 
     componentWillMount() {
         this.props.moviesActions.getMovieGenre();
-        this.props.moviesActions.getAllPopularMovies({ page: this.state.page });
+        this.props.moviesActions.getAllPopularMovies({ page: this.props.popularMovies.payload.page });
     }
 
     componentWillUpdate(nextProps, nextState) {
         //console.log(nextProps.movieGenres);
     }
 
-    componentWillReceiveProps(nextProps) {
-        debugger;
-    };
-
     render() {
         const {popularMovies, movieGenres  } = this.props;
+        debugger;
         return (
             (popularMovies.payload && movieGenres.payload) &&  <HomeComponent 
             popularMovies={popularMovies.payload.results} 

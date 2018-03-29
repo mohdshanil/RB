@@ -30,7 +30,8 @@ export const getAllPopularMovies = (data) => {
         dispatch(asyncRequesting(actionTypes.REQUEST_POPULAR_MOVIES));
         axios.get('movie/popular?&page=' + data.page)
             .then(function (res) {
-                dispatch(asyncRequestSuccess(actionTypes.REQUEST_POPULAR_MOVIES_SUCCESS, res));
+                debugger;
+                dispatch(asyncRequestSuccess(actionTypes.REQUEST_POPULAR_MOVIES_SUCCESS, res.data));
                 //dispatch(asyncRequestCompleted(actionTypes.REQUEST_POPULAR_MOVIES_COMPLETED));
                 dispatch(stopLoading(actionTypes.STOP_LOADER));
             })
